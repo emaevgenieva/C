@@ -1,0 +1,46 @@
+// Напишете програма, която събира две 4х4 матрици от float и записва резултата в
+// трета такава със същия размер. Събирането на матриците става като намерим
+// сумата на съответстващите елементи в тях. Данните за изходните матрици трябва
+// да бъдат въведени от потребителя. Разпечатайте трите матрици в конзолата.
+
+#include<stdio.h>
+
+void inputMatrix(float matrix[4][4]){
+    for(int rows=0; rows<4; rows++){
+        for(int cols=0; cols<4; cols++){
+            scanf("%f", &matrix[rows][cols]);
+        }
+    }
+}
+
+void aditionOfMatrix(float matrix1[4][4], float matrix2[4][4],float sum[4][4]){
+    //float sum[4][4];
+    for(int rows=0; rows<4; rows++){
+        for(int cols=0; cols<4; cols++){
+            sum[rows][cols] = matrix1[rows][cols] + matrix2[rows][cols];
+        }
+    }
+}
+
+void printMatrix(float matrix[4][4]){
+    for(int rows=0; rows<4; rows++){
+        for(int cols=0; cols<4; cols++){
+            printf("%f\n", matrix[rows][cols]);
+        }
+    }
+}
+
+int main(void){
+    float matrix1[4][4];
+    printf("Enter the first matrix: \n");
+    inputMatrix(matrix1);
+
+    float matrix2[4][4];
+    printf("Enter the second matrix: \n");
+    inputMatrix(matrix2);
+
+    float sumMatrix[4][4];
+    aditionOfMatrix(matrix1,matrix2,sumMatrix);
+
+    printMatrix(sumMatrix);
+}
