@@ -1,0 +1,10 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    float a = 12.5f;
+    float b = 20.6f;
+    float perimeter = 2*a + 2*b;
+    float area = a*b;
+    printf("%0.2f\n",perimeter);
+    printf("%0.2f\n",area);
+}
