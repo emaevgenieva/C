@@ -1,1 +1,72 @@
-
+#include <stdio.h>
+​
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+#define ABS(a) ((a) < 0 ? -(a) : (a))
+#define IS_EVEN(a) ((a) % 2 == 0) ? "even" : "odd"
+#define IS_ODD(a) ((a) % 2 == 1) ? "odd" : "even"
+#define IS_IN_RANGE(value, upper, lower) ((value) >=(lower) && (value) <=(upper)) 
+#define PI 3.14159265
+#define DEG_TO_RAD(deg) ((deg )* PI/180.0)
+#define RAD_TO_DEG(deg) ((deg )* 180.0/PI)
+#define ARRAY_SIZE(arr) (sizeof(arr)/sizeof(arr[0]))
+#define SUM_DIGITS(num) ({ \
+    typeof(num) _sum = 0; \
+    typeof(num) _num = num; \
+    while (_num > 0) { \
+        _sum += _num % 10; \
+        _num /= 10; \
+    } \
+    _sum; \
+})
+int main(void)
+{
+    int a = 5;
+    int b = 10;
+​
+    printf("Min of %d and %d is %d\n", a, b, MIN(a, b));
+    printf("Max of %d and %d is %d\n", a, b, MAX(a, b));
+    int c = -10;
+    printf("Absolute value of %d is %d\n", c, ABS(c));
+​
+                      //*********** Task 2 *************//
+    //Дефинирайте макроси IS_EVEN и IS_ODD за проверка на това дали цяло число е четно или нечетно.
+​
+    printf("The Number %d is: %s\n", a, IS_EVEN(a));
+    printf("The Number %d is: %s\n", a, IS_ODD(a));
+​
+                     //********** Task 3 **************//
+    //Дефинирайте макроси IS_IN_RANGE, който проверява дали дадено число се намира в даден интервал
+​
+    int num = 10;
+    int lower = 0;
+    int upper = 15;
+    if (IS_IN_RANGE(num, upper, lower))
+    {
+        printf("%d is in the range [%d, %d]\n", num, lower, upper);
+    }
+    else
+    {
+        printf("%d is not in the range [%d, %d]\n", num, lower, upper);
+    }
+​
+                   //*********** Task 4 **********//
+    //Дефинирайте макроси DEG_TO_RAD и RAD_TO_DEG за преобразуване на ъгъл от градуси в радиани и обратно, съответно
+    double deg = 90.0;
+    double rad = DEG_TO_RAD(deg);
+    printf("%.2f degrees = %.2f radians\n", deg, rad);
+​
+    double deg2 = RAD_TO_DEG(rad);
+    printf("%.2f radians = %.2f degrees\n", rad, deg2);
+                //************ Task 5 **********//
+    //Дефинирайте макрос ARRAY_SIZE, който връща броя на елементи на масив.
+    int arr[] = { 1,2,3,4,5,6,10 };
+    int size = ARRAY_SIZE(arr);
+    printf("the size of arraay is %d\n", size);
+​
+                //*********** Task 6 **********//
+    //Дефинирайте макрос SUM_DIGITS(num, type), който връща сумата от цифрите на цяло число. Вторият параметър указва типа и е нужен за дефиниция на променлива за сумата.
+    
+​
+    return 0;
+}
